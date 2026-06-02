@@ -16,8 +16,8 @@ export const deleteBlog = async (req, res) => {
       });
     }
     //4.Delete blog image from cloudinary
-    if (existingBlog.blogImagePublicId) {
-      await cloudinary.uploader.destroy(existingBlog.blogImagePublicId);
+    if (blog.blogImagePublicId) {
+      await cloudinary.uploader.destroy(blog.blogImagePublicId);
     }
     // 5. Delete the blog post
     await Blog.findByIdAndDelete(id);
